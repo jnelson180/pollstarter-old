@@ -11,10 +11,14 @@ module.exports = React.createClass({
 				<p>Welcome, <span id="display-name">{this.props.user.displayName}</span>!</p>
 				<Link className="menu" to={"/"}>Home</Link>
 				<p>|</p>
+				<Link className="menu" to={"/createPoll"}>Create Poll</Link>
+				<p>|</p>
+				<Link className="menu" to={"/managePoll"}>Manage Polls</Link>
+				<p>|</p>
 				<Link className="menu" to={"/profile"}>Profile</Link>
 				<p>|</p>
 				<a className="menu" href="/logout">Logout</a>
-			</header>		
+			</header>
 		)
 	}
 });

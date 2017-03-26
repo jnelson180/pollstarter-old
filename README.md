@@ -1,5 +1,3 @@
 # pollstarter
 
-## A simple, elegant poll solution.
-
-### Written with the MERN (Mongo, Express, React, Node) stack.
+#### A simple, elegant polling application written with the MERN (Mongo, Express, React, Node) stack.
