@@ -1,0 +1,27 @@
+Project / Root Folder - The project directory. This directory contains:
+
+app/common      - This directory will contain common JS functions that will be used
+                  across more than one of our controllers.
+
+app/config      - The directory containing configuration files for Passport.
+
+app/models      - Directory for database models. In this case, this is where the
+                  Mongoose schemas will be defined. These models are definitions of
+                  desired data structure that will be inserted into the database.
+
+app/controllers - Directory for client and server-side controller files.
+                  Controllers are used to either manipulate / modify the view
+                  or the model (i.e. the database).
+
+app/routes      - This folder contains route files. Routes give directions on
+                  what to do when a particular URL or HTTP request is made from
+                  the client (i.e. browser) to the server.
+
+public          - This directory contains information used to render the view
+                  (i.e. css & images). Traditionally, this directory would also
+                  include a library of any vendor code
+                  (i.e. AngularJS, jQuery, etc) used in the application.
+
+public/css      - Contains the style sheet(s) for the application
+
+public/img      - Contains any images used in the view (i.e. the Clementine.js logo)
