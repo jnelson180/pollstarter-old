@@ -215,3 +215,8 @@ span {
   width: 200px;
   height: auto;
 }
+
+/****** Form Styling ******/
+input {
+  margin-bottom: 20px;
+}

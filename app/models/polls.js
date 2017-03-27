@@ -8,13 +8,13 @@ var Poll = new Schema({
         id: String,
         pollName: String,
         owner: String,
-        publicRepos: Number
+        stats: {
+           views: Number,
+           question: String,
+           fields: Array,
+           values: Array
+        }
     },
-   stats: {
-      views: Number,
-      fields: [],
-      values: []
-   }
 });
 
 module.exports = mongoose.model('Poll', Poll);
