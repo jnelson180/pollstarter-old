@@ -1,5 +1,4 @@
-
-
+// this.props.route.user.displayName
 
 module.exports = class CreatePoll extends React.Component {
   render() {
@@ -7,7 +6,26 @@ module.exports = class CreatePoll extends React.Component {
     return (
     <div>
       <h1>Create a poll</h1>
-      <p>Let's create a poll, {this.props.route.user.displayName}!</p>
+        <form>
+          Poll question <br />
+          <input type="text" name="pollQuestion" /><br />
+
+          Option 1 <br />
+          <input type="text" name="option-1" /><br />
+
+          Option 2 <br />
+          <input type="text" name="option-1" /><br />
+
+          Option 3 <br />
+          <input type="text" name="option-1" /><br />
+
+          Option 4 <br />
+          <input type="text" name="option-1" /><br />
+
+          Option 5 <br />
+          <input type="text" name="option-1" /><br />
+
+        </form>
     </div>
       );
   }
