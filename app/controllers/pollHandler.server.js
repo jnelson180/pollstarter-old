@@ -1,6 +1,8 @@
 'use strict';
 var bodyParser = require('body-parser');
 var Poll = require('../models/polls.js');
+var Polls = require('../models/polls.js');
+
 
 function PollHandler () {
   /* still in progress

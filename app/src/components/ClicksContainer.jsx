@@ -6,6 +6,7 @@ var SinglePoll = require('./SinglePoll');
 var ajaxRequest = require('../ajax-functions');
 
 var clicksApiUrl = window.location.origin + '/api/:id/clicks';
+var pollDataApiUrl = window.location.origin + '/polldata/api';
 
 
 module.exports = React.createClass({
@@ -23,6 +24,7 @@ module.exports = React.createClass({
 	},
 
 	render: function() {
+		this.getPollData();
 		return (
 			<div className="container">
 				<Header />
@@ -36,7 +38,10 @@ module.exports = React.createClass({
 	},
 
 	getPollData: function() {
-		// ajaxRequest('GET', '/api/')
+		ajaxRequest('GET', pollDataApiUrl, function(data) {
+			console.log(data);
+
+		})
 	},
 
 	handleAddClick: function() {

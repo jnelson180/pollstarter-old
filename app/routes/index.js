@@ -4,13 +4,11 @@ var path = process.cwd();
 
 var ClickHandler = require(path + '/app/controllers/clickHandler.server.js');
 var PollHandler = require(path + '/app/controllers/pollHandler.server.js');
-var PollData = require(path + '/app/controllers/pollData.server.js');
 
 module.exports = function (app, passport) {
 
     var clickHandler = new ClickHandler();
     var pollHandler = new PollHandler();
-    var pollData = new PollData();
 
     app.route('/')
         .get(function (req, res) {
@@ -38,13 +36,13 @@ module.exports = function (app, passport) {
         failureRedirect: '/login'
         }));
 
+        app.route('/pollData/api')
+            .get(pollHandler.getOne);
+
     app.route('/api/:id/clicks')
         .get(clickHandler.getClicks)
         .post(clickHandler.addClick)
         .delete(clickHandler.resetClicks);
-
-    app.route('/api/pollData')
-        .get(pollData.getOne);
 
     app.route('/api/pollEdit')
         .post(pollHandler.addPoll);
