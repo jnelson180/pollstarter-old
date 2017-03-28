@@ -10,6 +10,7 @@ module.exports = function (app, passport) {
 
     var clickHandler = new ClickHandler();
     var pollHandler = new PollHandler();
+    var pollData = new PollData();
 
     app.route('/')
         .get(function (req, res) {
@@ -41,6 +42,9 @@ module.exports = function (app, passport) {
         .get(clickHandler.getClicks)
         .post(clickHandler.addClick)
         .delete(clickHandler.resetClicks);
+
+    app.route('/api/pollData')
+        .get(pollData.getOne);
 
     app.route('/api/pollEdit')
         .post(pollHandler.addPoll);

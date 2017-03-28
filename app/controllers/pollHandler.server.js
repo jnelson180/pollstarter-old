@@ -14,14 +14,15 @@ function PollHandler () {
             });
     };
 */
-    this.getPoll = function (req, res) {
-      Polls
-        .findOne({}, {}, { sort: { $natural : -1 } }, function(err, result) {
-        console.log( result );
-        return result;
-        
-      });
-    }
+
+this.getOne = function (req, res) {
+    Polls
+        .findOne({}, { '_id': false }, { sort: {$natural:-1}})
+        .exec(function (err, result) {
+            if (err) { throw err; }
+            res.json(result);
+        });
+};
 
 
     this.addPoll = function (req, res) {

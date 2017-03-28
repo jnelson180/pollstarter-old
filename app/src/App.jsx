@@ -4,7 +4,7 @@ var Routes = require('./Routes');
 
 var ajax = require('./ajax-functions');
 var appUrl = window.location.origin;
-var apiUrl = appUrl + '/api/:id';
+var clicksApiUrl = appUrl + '/api/:id';
 
 var App = React.createClass({
   getInitialState: function() {
@@ -15,7 +15,7 @@ var App = React.createClass({
   },
   componentDidMount: function() {
     if(!this.state.user){
-      ajax('GET', apiUrl, function(data){
+      ajax('GET', clicksApiUrl, function(data){
         if (data != 'no user'){
           this.setState({
             user: JSON.parse(data)
@@ -24,14 +24,14 @@ var App = React.createClass({
         this.setState({
           response: true
         })
-      }.bind(this))	      
+      }.bind(this))
     }
   },
   render: function() {
       if(this.state.response){
         return (
           <Routes user={this.state.user}/>
-        )        
+        )
       } else {
         return (
           <div>Loading...</div>

@@ -5,7 +5,8 @@ var SinglePoll = require('./SinglePoll');
 
 var ajaxRequest = require('../ajax-functions');
 
-var apiUrl = window.location.origin + '/api/:id/clicks';
+var clicksApiUrl = window.location.origin + '/api/:id/clicks';
+
 
 module.exports = React.createClass({
 	getInitialState: function(){
@@ -14,7 +15,7 @@ module.exports = React.createClass({
 		}
 	},
 	componentWillMount: function () {
-	/*	ajaxRequest ('GET', apiUrl, function(data){
+	/*	ajaxRequest ('GET', clicksApiUrl, function(data){
 			this.setState({
 				clicks: JSON.parse(data).clicks
 			})
@@ -34,15 +35,19 @@ module.exports = React.createClass({
 		)
 	},
 
+	getPollData: function() {
+		// ajaxRequest('GET', '/api/')
+	},
+
 	handleAddClick: function() {
-		ajaxRequest ('POST', apiUrl, function(data){
+		ajaxRequest ('POST', clicksApiUrl, function(data){
 			console.log(data);
 			this.setState({clicks: JSON.parse(data).clicks})
 		}.bind(this))
 	},
 
 	handleDeleteClick: function () {
-		ajaxRequest ('DELETE', apiUrl, function(data){
+		ajaxRequest ('DELETE', clicksApiUrl, function(data){
 			console.log('delete');
 			this.setState({clicks: JSON.parse(data).clicks})
 		}.bind(this))
