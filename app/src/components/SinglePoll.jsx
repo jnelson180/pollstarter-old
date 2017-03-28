@@ -41,6 +41,7 @@ module.exports = class SinglePoll extends React.Component {
   }
 
 render() {
+  console.log()
   return <Pie data={this.state.data}  />
 }
 }

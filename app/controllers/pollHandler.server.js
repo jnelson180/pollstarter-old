@@ -14,6 +14,14 @@ function PollHandler () {
             });
     };
 */
+    this.getPoll = function (req, res) {
+      Polls
+        .findOne({}, {}, { sort: { $natural : -1 } }, function(err, result) {
+        console.log( result );
+        return result;
+        
+      });
+    }
 
 
     this.addPoll = function (req, res) {
