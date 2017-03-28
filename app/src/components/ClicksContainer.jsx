@@ -25,20 +25,20 @@ module.exports = React.createClass({
 
 	getPollData: function() {
 		ajaxRequest('GET', pollDataApiUrl, function(data) {
-			console.log(data);
-			return(data);
-		})
+			this.props.data = data;
+		}.bind(this))
 	},
 
 	render: function() {
 		this.getPollData();
+		console.log(this.props.data);
 		return (
 			<div className="container">
 				<Header />
 				<p></p>
 				<br />
 				<div className="polls-container">
-				  <SinglePoll data={[1, 1, 1]}/>
+				  <SinglePoll data={[8, 4, 2.5, 7]} labels={['A', 'B', 'C', 'D']}/>
 				</div>
 			</div>
 		)
