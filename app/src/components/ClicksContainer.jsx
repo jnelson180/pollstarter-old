@@ -23,6 +23,13 @@ module.exports = React.createClass({
 		}.bind(this)) */
 	},
 
+	getPollData: function() {
+		ajaxRequest('GET', pollDataApiUrl, function(data) {
+			console.log(data);
+			return(data);
+		})
+	},
+
 	render: function() {
 		this.getPollData();
 		return (
@@ -31,17 +38,10 @@ module.exports = React.createClass({
 				<p></p>
 				<br />
 				<div className="polls-container">
-				  <SinglePoll />
+				  <SinglePoll data={[1, 1, 1]}/>
 				</div>
 			</div>
 		)
-	},
-
-	getPollData: function() {
-		ajaxRequest('GET', pollDataApiUrl, function(data) {
-			console.log(data);
-
-		})
 	},
 
 	handleAddClick: function() {
