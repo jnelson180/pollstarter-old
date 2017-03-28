@@ -17,31 +17,57 @@ function PollHandler () {
 
 
     this.addPoll = function (req, res) {
-      console.log(req.body);
-      // console.log(req);
-      function processFields() {
-        var optionCount = (function() {
-        for(var key in req.body) {
-          if(req.body.hasOwnProperty(key)){
-              optionCount ++;
-            }
-          }
-        }) - 1;
-        console.log('fields length is ' + optionCount);
 
+      function getFieldCount() {
+        var fieldCount = 0;
+        for (var i = 0; i < 100; i++) {
+          if (req.body['option'+i]) {
+            fieldCount ++;
+          }
+        }
+        return fieldCount;
       }
 
-      processFields();
+      function processInitialFields() {
+        var fieldCount = getFieldCount();
+        console.log('fieldCount is ' + fieldCount);
+        var fieldArray = [];
+        for (var i = 1; i < fieldCount + 1; i++) {
+          fieldArray.push('option' + i);
+        }
+        return fieldArray;
+      }
+
+      function processInitialValues() {
+        var fieldCount = getFieldCount();
+        var valueArray = [];
+        for (var i = 1; i < fieldCount + 1; i++) {
+          valueArray.push(req.body['option'+i])
+        }
+        return valueArray;
+      }
+
+      function processInitialVotes() {
+        var optionCount = getFieldCount();
+        var initialVotes = [];
+        for (var i = 0; i < optionCount; i++) {
+          initialVotes.push(0);
+        }
+        return initialVotes;
+      }
 
       var newPoll = new Poll({
         'pollInfo.owner': req.user.github.username,
-        'pollInfo.stats.question': req.body.pollQuestion,
-        'pollInfo.stats.fields': ['test 1', 'test 2'],
-        'pollInfo.stats.values': ['test value a', 'test value b']
+        'pollInfo.question': req.body.pollQuestion,
+        'pollInfo.fields': processInitialFields(),
+        'pollInfo.values': processInitialValues(),
+        'pollInfo.votes': processInitialVotes(),
+        'pollInfo.stats.createDate': new Date()
       })
     newPoll.save(function (err) {
       if (err) throw err;
-      //saved!
+      console.log('saved new record to db');
+      res.send(newPoll);
     })
     };
 

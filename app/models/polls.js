@@ -8,11 +8,13 @@ var Poll = new Schema({
         id: String,
         pollName: String,
         owner: String,
+        fields: Array,
+        question: String,
+        values: Array,
+        votes: Array,
         stats: {
            views: Number,
-           question: String,
-           fields: Array,
-           values: Array
+           createDate: Date
         }
     },
 });
