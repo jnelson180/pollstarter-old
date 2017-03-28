@@ -1,6 +1,7 @@
 var React = require('react');
 var Btn = require('./Btn');
 var Header = require('./Header');
+var SinglePoll = require('./SinglePoll');
 
 var ajaxRequest = require('../ajax-functions');
 
@@ -24,9 +25,10 @@ module.exports = React.createClass({
 		return (
 			<div className="container">
 				<Header />
-				<p>Welcome to Pollstarter!</p>
+				<p></p>
 				<br />
 				<div className="polls-container">
+				  <SinglePoll />
 				</div>
 			</div>
 		)
