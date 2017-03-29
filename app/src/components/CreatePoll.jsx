@@ -16,6 +16,15 @@ module.exports = class CreatePoll extends React.Component {
 
           Option 2 <br />
           <input type="text" name="option2" /><br />
+
+          Option 3 <br />
+          <input type="text" name="option2" /><br />
+
+          Option 4 <br />
+          <input type="text" name="option2" /><br />
+
+          Option 5 <br />
+          <input type="text" name="option2" /><br />
         <input type="submit" value="Submit" />
         <input type="reset" />
       </form>
