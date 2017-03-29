@@ -86,7 +86,7 @@ this.getOne = function (req, res) {
     newPoll.save(function (err) {
       if (err) throw err;
       console.log('saved new record to db');
-      res.send(newPoll);
+      res.redirect('/');
     })
     };
 

@@ -35,7 +35,7 @@ module.exports = class extends React.Component {
                     <p></p>
                     <br/>
                     <div className="polls-container">
-                        <SinglePoll data={this.state.res.pollInfo.votes} labels={this.state.res.pollInfo.fields} question={this.state.res.pollInfo.question}/>
+                        <SinglePoll data={this.state.res.pollInfo.votes} labels={this.state.res.pollInfo.values} question={this.state.res.pollInfo.question}/>
                     </div>
                 </div>
             )
