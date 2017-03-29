@@ -7,7 +7,7 @@ module.exports = class CreatePoll extends React.Component {
     return (
     <div>
       <h1>Create a poll</h1>
-        <form action="/api/pollEdit" method="POST">
+        <form action="/api/pollEdit" method="POST" enctype="multipart/form-data">
           Poll question <br />
           <input type="text" name="pollQuestion" /><br />
 

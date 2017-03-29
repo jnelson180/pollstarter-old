@@ -14,7 +14,7 @@ var Poll = new Schema({
         votes: Array,
         stats: {
            views: Number,
-           createDate: Date
+           createDate: String,
         }
     },
 });

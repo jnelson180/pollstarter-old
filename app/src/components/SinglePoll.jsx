@@ -75,6 +75,11 @@ module.exports = class SinglePoll extends React.Component {
 
 render() {
   console.log(this.props.data)
-  return <Pie data={this.state.data} />
+  return (
+    <div>
+    <h3>{this.props.question}</h3>
+    <Pie data={this.state.data} />
+</div>
+  )
 }
 }

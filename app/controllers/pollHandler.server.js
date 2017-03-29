@@ -22,6 +22,8 @@ this.getOne = function (req, res) {
         .findOne({}, { '_id': false }, { sort: {$natural:-1}})
         .exec(function (err, result) {
             if (err) { throw err; }
+            console.log(result);
+            res.setHeader('Content-Type', 'application/json');
             res.json(result);
         });
 };
@@ -73,7 +75,7 @@ this.getOne = function (req, res) {
         'pollInfo.fields': processInitialFields(),
         'pollInfo.values': processInitialValues(),
         'pollInfo.votes': processInitialVotes(),
-        'pollInfo.stats.createDate': new Date()
+        'pollInfo.stats.createDate': new Date().toString()
       })
     newPoll.save(function (err) {
       if (err) throw err;

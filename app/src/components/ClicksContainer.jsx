@@ -12,33 +12,34 @@ var pollDataApiUrl = window.location.origin + '/polldata/api';
 module.exports = React.createClass({
 	getInitialState: function(){
 		return {
-			clicks: undefined
+			res: undefined
 		}
 	},
-	componentWillMount: function () {
-	/*	ajaxRequest ('GET', clicksApiUrl, function(data){
+
+	componentDidMount: function () {
+	ajaxRequest ('GET', pollDataApiUrl, function(data){
+		console.log('1 going to ' + pollDataApiUrl)
+		var result = JSON.parse(data);
 			this.setState({
-				clicks: JSON.parse(data).clicks
+				res: result
 			})
-		}.bind(this)) */
-	},
-
-	getPollData: function() {
-		ajaxRequest('GET', pollDataApiUrl, function(data) {
-			this.props.data = data;
 		}.bind(this))
-	},
+},
 
-	render: function() {
-		this.getPollData();
-		console.log(this.props.data);
+	render(){
+    if (this.state) {
+			// console.log('2.0', this.state);
+			// console.log('2.1', this.state.res.pollInfo);
+			// console.log('2.2', this.state.result);
+		}
 		return (
 			<div className="container">
 				<Header />
 				<p></p>
 				<br />
 				<div className="polls-container">
-				  <SinglePoll data={[8, 4, 2.5, 7]} labels={['A', 'B', 'C', 'D']}/>
+					  <SinglePoll data={[1, 2, 3]}
+					labels={['a', 'b', 'c']} question={"this.state.res.pollInfo.question || null"}/>
 				</div>
 			</div>
 		)
