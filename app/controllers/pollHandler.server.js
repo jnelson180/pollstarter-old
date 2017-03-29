@@ -20,6 +20,7 @@ function PollHandler () {
 this.getOne = function (req, res) {
     Polls
         .findOne({}, { '_id': false }, { sort: {$natural:-1}})
+        .lean()
         .exec(function (err, result) {
             if (err) { throw err; }
             console.log(result);
@@ -64,7 +65,12 @@ this.getOne = function (req, res) {
         var optionCount = getFieldCount();
         var initialVotes = [];
         for (var i = 0; i < optionCount; i++) {
-          initialVotes.push(0);
+          // --------------------IMPORTANT-----------------------------------
+          // !!!!!! change back to this once done
+          // to fill with empty array --
+          // initialVotes.push(0);
+          var randomNumber = Math.floor(Math.random() * 6) + 1;
+          initialVotes.push(randomNumber)
         }
         return initialVotes;
       }
