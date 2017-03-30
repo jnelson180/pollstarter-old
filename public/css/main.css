@@ -92,10 +92,24 @@ header a ~ p {
 }
 
 /****** Logo Div Styling ******/
-
+/*
 img {
     margin: 0 auto;
     display: block;
+}
+*/
+.logo-50 {
+  width: 50px !important;
+  height: auto;
+  position: absolute;
+  left: 10px;
+  top: 8px;
+}
+
+.logo-div {
+  position: absolute;
+  left: 20px;
+  top: 4px;
 }
 
 /****** Click Styling ******/
@@ -215,7 +229,7 @@ span {
     margin: -25px 0 0 0;
     font-weight: 500;
     font-size: 60px;
-    color: #FFA000;
+    color: #00BCD4;
 }
 
 /****** Image Styling ******/
