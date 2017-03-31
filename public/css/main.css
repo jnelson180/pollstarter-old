@@ -98,12 +98,17 @@ img {
     display: block;
 }
 */
+
+.pollstarter-nav-text {
+  margin-left: 75px;
+}
+
 .logo-50 {
   width: 50px !important;
   height: auto;
   position: absolute;
   left: 10px;
-  top: 8px;
+  top: 10px;
 }
 
 .logo-div {
@@ -226,7 +231,7 @@ span {
 
 .pollstarter-text { /* Styling for the Clementine.js text */
     padding: 0;
-    margin: -25px 0 0 0;
+    margin: -25px 0 0 0px;
     font-weight: 500;
     font-size: 60px;
     color: #00BCD4;
