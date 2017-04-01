@@ -62,6 +62,13 @@ module.exports = class SinglePoll extends React.Component {
           }]
       },
       options: {
+        onClick: { function(evt){
+          console.log('hi');
+            var activePoints = myLineChart.getElementsAtEvent(evt);
+            // => activePoints is an array of points on the canvas that are at the same position as the click event.
+            console.log(activePoints);
+          }
+        },
           scales: {
               yAxes: [{
                   ticks: {
@@ -69,7 +76,9 @@ module.exports = class SinglePoll extends React.Component {
                   }
               }]
           }
-      }
+      },
+      onElementsClick: function(elems) { console.log(elems) }
+// => returns the first element at the event point.
 }
   }
 
@@ -77,9 +86,9 @@ render() {
   console.log(this.props.data)
   return (
     <div>
-    <h3>{this.props.question}</h3>
-    <Pie data={this.state.data} />
+    <p className = "SinglePoll-question">{this.props.question}</p>
+    <Pie data={this.state.data} getElementAtEvent={this.state.onElementsClick} />
 </div>
   )
-}
+};
 }

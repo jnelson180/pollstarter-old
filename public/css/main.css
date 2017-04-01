@@ -28,13 +28,17 @@ p {
 }
 
 canvas {
-  max-width: 800px;
+  width: 60% !important;
+  height: auto !important;
+  border-radius: 3px;
+  margin: 16px auto 0px auto;
+  text-align: center;
 }
 
 /****** Header Styling ******/
 
 header p {
-    margin: 16px 0 5px 0;
+    margin: 20px 0 5px 0;
 }
 
 .menu {
@@ -235,6 +239,10 @@ span {
     font-weight: 500;
     font-size: 60px;
     color: #00BCD4;
+}
+
+.SinglePoll-question {
+    text-align: center;
 }
 
 /****** Image Styling ******/
