@@ -19,7 +19,7 @@ function PollHandler () {
 
 this.getOne = function (req, res) {
     Polls
-        .findOne({}, { '_id': false }, { sort: {$natural:-1}})
+        .findOne({}, {  }, { sort: {$natural:-1}})
         .lean()
         .exec(function (err, result) {
             if (err) { throw err; }

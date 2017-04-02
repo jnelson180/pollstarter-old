@@ -10,11 +10,11 @@ module.exports = class SinglePoll extends React.Component {
               label: '# of Votes',
               data: this.props.data,
               backgroundColor: [
-                  "#2DACE3",
-                  "#AD78D7",
-                  "#FFA000",
-                  "#E22879",
-                  "#50A82F",
+                  "#DF2428",
+                  "#2AA5DE",
+                  "#68B12C",
+                  "#E93D87",
+                  "#F5B027",
                   "#3471db",
                   "#f1c40f",
                   "#2ecc71",
@@ -62,13 +62,25 @@ module.exports = class SinglePoll extends React.Component {
           }]
       },
       options: {
+        legend: {
+    display: true,
+    labels: {
+        fontColor: 'rgb(255, 0, 132)'
+          }
+        },
+
+        title: {
+          display: true,
+          text: 'question',
+          position: 'top',
+        },
         onClick: { function(evt){
           console.log('hi');
             var activePoints = myLineChart.getElementsAtEvent(evt);
             // => activePoints is an array of points on the canvas that are at the same position as the click event.
             console.log(activePoints);
           }
-        },
+          },
           scales: {
               yAxes: [{
                   ticks: {
