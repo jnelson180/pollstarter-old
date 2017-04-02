@@ -30,11 +30,11 @@ module.exports = class SinglePoll extends React.Component {
                   "#8BC34A"
               ],
               hoverBackgroundColor: [
-                  "#3EBDF4",
-                  "#BE89E8",
-                  "#FFA833",
-                  "#E83999",
-                  "#70B94F",
+                  "#EF2539",
+                  "#3BB6EF",
+                  "#79C23D",
+                  "#FA4E98",
+                  "#F6C138",
                   "#4582ec",
                   "#e2d51e",
                   "#3edd82",
@@ -89,7 +89,10 @@ module.exports = class SinglePoll extends React.Component {
               }]
           }
       },
-      onElementsClick: function(elems) { console.log(elems) }
+      onElementsClick: function(elems) {
+        console.log(elems);
+        console.log('clicked element at index', elems[0]["_index"], elems[0]._chart.config.data.labels[(elems[0]._index)]);
+      }
 // => returns the first element at the event point.
 }
   }
