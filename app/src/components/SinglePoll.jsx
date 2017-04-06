@@ -1,9 +1,13 @@
 var Pie = require('react-chartjs-2').Pie;
+var ajaxRequest = require('../ajax-functions');
+var voteUrl = window.location.origin + '/pollData/vote';
+
 
 module.exports = class SinglePoll extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      votes: this.props.data,
       data: {
           labels: this.props.labels,
           datasets: [{
@@ -89,16 +93,37 @@ module.exports = class SinglePoll extends React.Component {
               }]
           }
       },
+
       onElementsClick: function(elems) {
-        console.log(elems);
+        // console.log('elems is: ');
+        // console.log(elems);
         console.log('clicked element at index', elems[0]["_index"], elems[0]._chart.config.data.labels[(elems[0]._index)]);
-      }
+        var choice = elems[0]["_index"];
+        var id = this.props.id;
+        var curVoteUrl = voteUrl + "/" + id + "/" + choice;
+       //  console.log(this.state.data.datasets[0].data);
+        // this.state.data.datasets[0].data[elems[0]["_index"]] = this.state.data.datasets[0].data[elems[0]["_index"]] + 1;
+
+        ajaxRequest('POST', curVoteUrl, function(data) {
+            console.log('1 being added to ' + curVoteUrl)
+            var result = JSON.parse(data);
+            console.log(result);
+            console.log('before update this.state.data is', this.state.data);
+            this.state.data.datasets[0].data = result.pollInfo.votes;
+            console.log('this state data is now ');
+            console.log(this.state);
+            this.render();
+        }.bind(this))
+
+      }.bind(this)
 // => returns the first element at the event point.
 }
   }
 
 render() {
-  console.log(this.props.data)
+  // console.log(this.props.data)
+  console.log('this.state.votes is ', this.state.votes);
+  console.log('this.state.data is ', this.state.data);
   return (
     <div>
     <p className = "SinglePoll-question">{this.props.question}</p>

@@ -26,7 +26,9 @@ module.exports = class extends React.Component {
 
     render() {
         if (this.state.res) {
+            console.log('in clickscontainer.jsx, pollinfo is');
             console.log(this.state.res.pollInfo);
+            console.log(this.state.res._id);
 
             return (
 
@@ -36,10 +38,10 @@ module.exports = class extends React.Component {
                     <br/>
                     <div className="polls-container">
                         <SinglePoll
-												data={this.state.res.pollInfo.votes} 
+												data={this.state.res.pollInfo.votes}
 												labels={this.state.res.pollInfo.values}
 												question={this.state.res.pollInfo.question}
-												id={this.state.res.pollInfo} />
+												id={this.state.res._id} />
                     </div>
                 </div>
             )

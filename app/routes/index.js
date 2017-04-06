@@ -39,6 +39,9 @@ module.exports = function (app, passport) {
         app.route('/pollData/api')
             .get(pollHandler.getOne);
 
+        app.route('/pollData/vote/:id/:choice')
+            .post(pollHandler.addVote);
+
     app.route('/api/:id/clicks')
         .get(clickHandler.getClicks)
         .post(clickHandler.addClick)

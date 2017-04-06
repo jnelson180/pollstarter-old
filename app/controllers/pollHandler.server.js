@@ -23,10 +23,30 @@ this.getOne = function (req, res) {
         .lean()
         .exec(function (err, result) {
             if (err) { throw err; }
-            console.log(result);
+            // console.log(result);
             res.setHeader('Content-Type', 'application/json');
             res.json(result);
         });
+};
+
+this.addVote = function (req, res) {
+  console.log('received request to add vote to ', req.params);
+    var incVote = 'pollInfo.votes[' + req.params.choice + ']';
+    var choice = req.params.choice;
+
+    Polls
+        .findOneAndUpdate({ _id: req.params.id }, { $set: { 'pollInfo.votes[2]': 9 } },  {new: true})
+        .exec(function (err, result) {
+                if (err) { throw err; }
+                console.log('update dbresults');
+                result.pollInfo.votes.set(choice, (result.pollInfo.votes[choice] + 1));
+                result.save();
+                console.log('i', result);
+                console.log(result.pollInfo.votes);
+                res.json(result);
+            }
+        )
+
 };
 
 
