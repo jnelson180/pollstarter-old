@@ -62,42 +62,53 @@ module.exports = class SinglePoll extends React.Component {
                   'rgba(255, 255, 255, 1)',
                   'rgba(255, 255, 255, 1)'
               ],
-              borderWidth: 1.5
+              borderWidth: 3,
           }]
       },
       options: {
         legend: {
-    display: true,
-    labels: {
-        fontColor: 'rgb(255, 0, 132)'
-          }
-        },
+          display: true,
+          position: 'top',
+          padding: 20,
+            labels: {
+              fontColor: '#555'
+            }
+          },
 
         title: {
           display: true,
-          text: 'question',
           position: 'top',
+          fullWidth: true,
+          fontSize: 12,
+          fontColor: '#333',
+          fontStyle: 'bold',
+          text: this.props.question,
+          padding: 20,
+
         },
+        /* scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }  */
+      },
+
         onClick: { function(evt){
-          console.log('hi');
-            var activePoints = myLineChart.getElementsAtEvent(evt);
+          console.log('this: ', this);
+            var activePoints = Pie.getElementsAtEvent(evt);
             // => activePoints is an array of points on the canvas that are at the same position as the click event.
-            console.log(activePoints);
+            console.log('activePoints: ', activePoints);
           }
           },
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero:true
-                  }
-              }]
-          }
-      },
+
+
 
       onElementsClick: function(elems) {
         // console.log('elems is: ');
         // console.log(elems);
-        console.log('clicked element at index', elems[0]["_index"], elems[0]._chart.config.data.labels[(elems[0]._index)]);
+        // console.log('clicked element at index', elems[0]["_index"], elems[0]._chart.config.data.labels[(elems[0]._index)]);
         var choice = elems[0]["_index"];
         var id = this.props.id;
         var curVoteUrl = voteUrl + "/" + id + "/" + choice;
@@ -105,13 +116,14 @@ module.exports = class SinglePoll extends React.Component {
         // this.state.data.datasets[0].data[elems[0]["_index"]] = this.state.data.datasets[0].data[elems[0]["_index"]] + 1;
 
         ajaxRequest('POST', curVoteUrl, function(data) {
-            console.log('1 being added to ' + curVoteUrl)
+            // console.log('1 being added to ' + curVoteUrl)
             var result = JSON.parse(data);
-            console.log(result);
-            console.log('before update this.state.data is', this.state.data);
+            // console.log(result);
+            // console.log('before update this.state.data is', this.state.data);
             this.state.data.datasets[0].data = result.pollInfo.votes;
-            console.log('this state data is now ');
-            console.log(this.state);
+            this.state.votes = result.pollInfo.votes;
+
+
             this.render();
         }.bind(this))
 
@@ -122,12 +134,12 @@ module.exports = class SinglePoll extends React.Component {
 
 render() {
   // console.log(this.props.data)
-  console.log('this.state.votes is ', this.state.votes);
-  console.log('this.state.data is ', this.state.data);
+  // console.log('this.state.votes is ', this.state.votes);
+  // console.log('this.state.data is ', this.state.data);
+  console.log('rendered');
   return (
     <div>
-    <p className = "SinglePoll-question">{this.props.question}</p>
-    <Pie data={this.state.data} getElementAtEvent={this.state.onElementsClick} />
+    <Pie data={this.state.data} getElementAtEvent={this.state.onElementsClick} options={this.state.options} />
 </div>
   )
 };
