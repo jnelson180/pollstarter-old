@@ -54,14 +54,7 @@ module.exports = class SinglePoll extends React.Component {
                   "#9CD45B"
 
             ],
-              borderColor: [
-                  'rgba(255,255,255,1)',
-                  'rgba(255, 255, 255, 1)',
-                  'rgba(255, 255, 255, 1)',
-                  'rgba(255, 255, 255, 1)',
-                  'rgba(255, 255, 255, 1)',
-                  'rgba(255, 255, 255, 1)'
-              ],
+
               borderWidth: 3,
           }]
       },
@@ -79,20 +72,23 @@ module.exports = class SinglePoll extends React.Component {
           display: true,
           position: 'top',
           fullWidth: true,
-          fontSize: 12,
+          fontSize: 18,
           fontColor: '#333',
           fontStyle: 'bold',
           text: this.props.question,
           padding: 20,
 
         },
-        /* scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }  */
+
+        tooltips: {
+          backgroundColor: 'rgba(0,0,0,0.8)',
+          titleFontSize: 14,
+          titleSpacing: 8,
+          titleMarginBottom: 12,
+          bodySpacing: 6,
+          bodyFontSize: 16,
+        },
+        maintainAspectRatio: false,
       },
 
         onClick: { function(evt){
@@ -121,10 +117,9 @@ module.exports = class SinglePoll extends React.Component {
             // console.log(result);
             // console.log('before update this.state.data is', this.state.data);
             this.state.data.datasets[0].data = result.pollInfo.votes;
-            this.state.votes = result.pollInfo.votes;
+            this.setState({ 'votes': result.pollInfo.votes });
 
 
-            this.render();
         }.bind(this))
 
       }.bind(this)
@@ -138,9 +133,8 @@ render() {
   // console.log('this.state.data is ', this.state.data);
   console.log('rendered');
   return (
-    <div>
-    <Pie data={this.state.data} getElementAtEvent={this.state.onElementsClick} options={this.state.options} />
-</div>
+
+    <Pie data={this.state.data} getElementAtEvent={this.state.onElementsClick} options={this.state.options} width={400} height={400} />
   )
 };
 }
