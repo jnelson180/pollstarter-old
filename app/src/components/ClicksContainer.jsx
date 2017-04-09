@@ -18,9 +18,11 @@ module.exports = class extends React.Component {
 
     componentDidMount() {
         ajaxRequest('GET', pollDataApiUrl, function(data) {
-            console.log('1 going to ' + pollDataApiUrl)
+            console.log('request going to ' + pollDataApiUrl)
             var result = JSON.parse(data);
-            this.setState({res: result})
+            this.setState({res: result});
+
+            console.log("!!!", result);
         }.bind(this))
     }
 

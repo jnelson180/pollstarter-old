@@ -30,17 +30,20 @@ this.getOne = function (req, res) {
 };
 
 // testing
-this.getX = function (req, res, x) {
-  console.log('received request for ' + x + ' polls.');
+this.getX = function (req, res) {
+  console.log('received request for x polls.');
   Polls
-    .find({}).limit(3).sort({ $natural: -1 })
-    .lean()
+    .find()
+    .sort({$natural:-1})
+    .limit(3)
     .exec(function (err, result) {
       if (err) { throw (err); }
+      console.log(result);
       res.setHeader('Content-Type', 'application/json');
       res.json(result);
-    })
-}
+
+    });
+};
 
 this.addVote = function (req, res) {
   console.log('received request to add vote to ', req.params);
