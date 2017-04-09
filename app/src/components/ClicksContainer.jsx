@@ -19,59 +19,45 @@ module.exports = class extends React.Component {
     componentDidMount() {
         ajaxRequest('GET', pollDataApiUrl, function(data) {
             console.log('request going to ' + pollDataApiUrl)
+            console.log('data: ', data);
             var result = JSON.parse(data);
+            console.log('result: ', result);
             this.setState({res: result});
-
-            console.log("!!!", result);
         }.bind(this))
     }
 
     render() {
-        if (this.state.res) {
-            console.log('in clickscontainer.jsx, pollinfo is');
-            console.log(this.state.res.pollInfo);
-            console.log(this.state.res._id);
+         if (this.state.res) {
+            // console.log('in clickscontainer.jsx, pollinfo is');
+            // console.log(this.state.res.pollInfo);
+            // console.log(this.state.res._id);
+            console.log('res length: ', this.state.res.length);
+            console.log(this.state.res);
 
             return (
-
                 <div className="container">
-                    <Header/>
-                    <p></p>
-                    <br/>
-                    <div className="polls-container">
-                        <SinglePoll
-												data={this.state.res.pollInfo.votes}
-												labels={this.state.res.pollInfo.values}
-												question={this.state.res.pollInfo.question}
-												id={this.state.res._id} />
+
+                    { this.state.res.map((poll, index) => (
+
+                        <div className="polls-container">
+                            <SinglePoll data={poll.pollInfo.votes} labels={poll.pollInfo.values} question={poll.pollInfo.question} id={poll._id}/></div>
+
+                    )
+
+                )}
                     </div>
-                </div>
-            )
-        } else {
-            return (
-                <div className="container">
-                    <Header/>
-                    <p></p>
-                    <br/>
-                    <div className="polls-container"></div>
-                </div>
-            )
-        }
-    }
+                  );
 
-    /*
-		handleAddClick() {
-			ajaxRequest ('POST', clicksApiUrl, function(data){
-				console.log(data);
-				this.setState({clicks: JSON.parse(data).clicks})
-			}.bind(this))
-		}
-
-		handleDeleteClick() {
-			ajaxRequest ('DELETE', clicksApiUrl, function(data){
-				console.log('delete');
-				this.setState({clicks: JSON.parse(data).clicks})
-			}.bind(this))
-		}
-	*/
+                   } else {
+                      return (
+                        <div className="container">
+                            <Header/>
+                            <p></p>
+                            <br/>
+                            <div className="polls-container"></div>
+                        </div>
+                    )
 }
+
+                    }
+                  }
