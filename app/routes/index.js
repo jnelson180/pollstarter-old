@@ -37,7 +37,7 @@ module.exports = function (app, passport) {
         }));
 
         app.route('/pollData/api')
-            .get(pollHandler.getOne);
+            .get(pollHandler.getX);
 
         app.route('/pollData/vote/:id/:choice')
             .post(pollHandler.addVote);
