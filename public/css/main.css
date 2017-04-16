@@ -255,3 +255,18 @@ span {
 input {
   margin-bottom: 20px;
 }
+
+/****** CreatePoll Styling ******/
+#pollCreateContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#pollCreate {
+  margin-top: 20px;
+}
+
+#pollCreate form input {
+  margin-right: 10px;
+}

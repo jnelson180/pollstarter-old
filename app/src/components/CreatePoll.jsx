@@ -5,7 +5,8 @@ module.exports = class CreatePoll extends React.Component {
   render() {
   console.log(this.props.route);
     return (
-    <div>
+    <div id="pollCreateContainer">
+    <div id="pollCreate">
       <h1>Create a poll</h1>
         <form action="/api/pollEdit" method="POST" enctype="multipart/form-data">
           Poll question <br />
@@ -25,10 +26,11 @@ module.exports = class CreatePoll extends React.Component {
 
           Option 5 <br />
           <input type="text" name="option5" /><br />
-          
+
         <input type="submit" value="Submit" />
         <input type="reset" />
       </form>
+      </div>
     </div>
       );
   }
