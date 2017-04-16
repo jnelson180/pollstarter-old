@@ -1,11 +1,57 @@
 /****** Main Styling ******/
 
+
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     margin: 0;
     padding: 0;
+    height: 100%;
+    background: url('');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-size: contain;
 }
+
+#top, #bottom, #left, #right {
+	background: #929292;
+	position: fixed;
+	}
+	#left, #right {
+    z-index: 105;
+		top: 0; bottom: 0;
+		width: 6px;
+
+		}
+		#left {
+      left: 0;
+      border-left: 3px groove #929292;
+    }
+		#right {
+      right: 0;
+      border-right: 3px groove #929292;
+    }
+
+	#top, #bottom {
+		left: 0; right: 0;
+		}
+		#top {
+      z-index: 106;
+      top: 0;
+      height: 6px;
+      border-top: 3px groove #929292;
+      border-left: 3px groove #929292;
+      border-right: 3px groove #929292;
+    }
+		#bottom {
+      z-index: 104;
+      bottom: 0;
+      height: 0px;
+      border-bottom: 16px groove #929292;
+      border-left: 3px groove #929292;
+      border-right: 3px groove #929292;
+    }
 
 header {
     color: #00BCD4;
@@ -25,6 +71,9 @@ p {
 
 .polls-container {
   margin-top: 75px;
+  margin-bottom: 75px;
+  padding-bottom: 20px;
+
 }
 
 canvas {
@@ -119,6 +168,12 @@ img {
   position: absolute;
   left: 20px;
   top: 4px;
+}
+
+@media (max-width: 931px) {
+  .logo-div {
+    display: none;
+  }
 }
 
 /****** Click Styling ******/
@@ -254,19 +309,4 @@ span {
 /****** Form Styling ******/
 input {
   margin-bottom: 20px;
-}
-
-/****** CreatePoll Styling ******/
-#pollCreateContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#pollCreate {
-  margin-top: 20px;
-}
-
-#pollCreate form input {
-  margin-right: 10px;
 }
