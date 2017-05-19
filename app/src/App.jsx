@@ -1,7 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Routes = require('./Routes');
-import { Card, Icon, Image } from 'semantic-ui-react';
+var Card = require('semantic-ui-react').Card;
 
 var ajax = require('./ajax-functions');
 var appUrl = window.location.origin;
@@ -28,7 +28,7 @@ var App = React.createClass({
       }.bind(this))
     }
   },
-  render: function() {
+  render() {
       if(this.state.response){
         return (
           <Routes user={this.state.user}/>

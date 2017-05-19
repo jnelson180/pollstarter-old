@@ -35,7 +35,7 @@ var notify = function(error) {
 
 var bundler = watchify(browserify({
   entries: ['./app/src/App.jsx'],
-  transform: [babelify, reactify],
+  transform: [reactify, babelify],
   extensions: ['.jsx'],
   debug: true,
   cache: {},

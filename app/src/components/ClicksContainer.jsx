@@ -1,11 +1,9 @@
-import { Card, Icon, Image } from 'semantic-ui-react';
-
 
 var React = require('react');
 var Btn = require('./Btn');
 var Header = require('./Header');
 var SinglePoll = require('./SinglePoll');
-
+var Card = require('semantic-ui-react').Card;
 var ajaxRequest = require('../ajax-functions');
 
 var clicksApiUrl = window.location.origin + '/api/:id/clicks';
@@ -45,12 +43,6 @@ module.exports = class extends React.Component {
                         <Card>
                             <div className="polls-container">
                                 <SinglePoll data={poll.pollInfo.votes} labels={poll.pollInfo.values} question={poll.pollInfo.question} id={poll._id}/></div>
-                                <Card.Content>
-                                    <Card.Header>
-                                        Test Header
-                                    </Card.Header>
-                                    Some test text.
-                                </Card.Content>
                         </Card>
                           
                     )
