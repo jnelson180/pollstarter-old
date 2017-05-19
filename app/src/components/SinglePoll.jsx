@@ -133,8 +133,9 @@ render() {
   // console.log('this.state.data is ', this.state.data);
   console.log('rendered');
   return (
-
-    <Pie data={this.state.data} getElementAtEvent={this.state.onElementsClick} options={this.state.options} width={400} height={400} />
+    <Card>
+      <Pie data={this.state.data} getElementAtEvent={this.state.onElementsClick} options={this.state.options} width={400} height={400} />
+    </Card>
   )
 };
 }

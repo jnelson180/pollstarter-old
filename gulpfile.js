@@ -7,6 +7,7 @@ var watchify = require('watchify');
 var reactify = require('reactify');
 var notifier = require('node-notifier');
 var livereload = require('gulp-livereload');
+var babelify = require('babelify');
 
 var notify = function(error) {
   var message = 'In: ';
@@ -25,15 +26,16 @@ var notify = function(error) {
   }
 
   if(error.lineNumber) {
-    message += '\nOn Line: ' + error.lineNumber;
+    console.log('error On Line: ' + error.lineNumber);
+    console.log(error);
   }
-
+  console.log(error.description + ":\n" + error.message ? error.message : "");
   notifier.notify({title: title, message: message});
 };
 
 var bundler = watchify(browserify({
   entries: ['./app/src/App.jsx'],
-  transform: [reactify],
+  transform: [babelify, reactify],
   extensions: ['.jsx'],
   debug: true,
   cache: {},
