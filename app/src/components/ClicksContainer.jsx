@@ -3,7 +3,6 @@ var React = require('react');
 var Btn = require('./Btn');
 var Header = require('./Header');
 var SinglePoll = require('./SinglePoll');
-var Card = require('semantic-ui-react').Card;
 var ajaxRequest = require('../ajax-functions');
 
 var clicksApiUrl = window.location.origin + '/api/:id/clicks';
@@ -40,10 +39,10 @@ module.exports = class extends React.Component {
 
                     { this.state.res.map((poll, index) => (
 
-                        <Card>
+                      
                             <div className="polls-container">
                                 <SinglePoll data={poll.pollInfo.votes} labels={poll.pollInfo.values} question={poll.pollInfo.question} id={poll._id}/></div>
-                        </Card>
+    
                           
                     )
 

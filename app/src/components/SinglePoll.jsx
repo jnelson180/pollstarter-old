@@ -1,7 +1,6 @@
 var Pie = require('react-chartjs-2').Pie;
 var ajaxRequest = require('../ajax-functions');
 var voteUrl = window.location.origin + '/pollData/vote';
-var Card = require('semantic-ui-react').Card;
 
 module.exports = class SinglePoll extends React.Component {
   constructor(props) {
@@ -133,11 +132,9 @@ render() {
   // console.log('this.state.data is ', this.state.data);
   console.log('rendered');
   return (
-    <Card>
-      <Card.Content>
+
         <Pie data={this.state.data} getElementAtEvent={this.state.onElementsClick} options={this.state.options} width={400} height={400} />
-      </Card.Content>
-    </Card>
+
   )
 };
 }
