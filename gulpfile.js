@@ -11,27 +11,27 @@ var babelify = require('babelify');
 var sass = require('gulp-sass');
 
 var notify = function (error) {
-    // var message = 'In: ';
-    // var title = 'Error: ';
+    var message = 'In: ';
+    var title = 'Error: ';
 
-    // if (error.description) {
-    //     title += error.description;
-    // } else if (error.message) {
-    //     title += error.message;
-    // }
+    if (error.description) {
+        title += error.description;
+    } else if (error.message) {
+        title += error.message;
+    }
 
-    // if (error.filename) {
-    //     var file = error.filename.split('/');
-    //     message += file[file.length - 1];
-    //     console.log(message);
-    // }
+    if (error.filename) {
+        var file = error.filename.split('/');
+        message += file[file.length - 1];
+        console.log(message);
+    }
 
-    // if (error.lineNumber) {
-    //     console.log('error On Line: ' + error.lineNumber + ':', error);
-    // }
-    // console.log(error.description + ":\n" + error.message ? error.message : "");
-    // notifier.notify({ title: title, message: message });
-    console.log(JSON.stringify(error).toString().slice(0, 500));
+    if (error.lineNumber) {
+        console.log('error On Line: ' + error.lineNumber + ':', error);
+    }
+    console.log(error.description + ":\n" + error.message ? error.message : "");
+    notifier.notify({ title: title, message: message });
+    // console.log(JSON.stringify(error).toString().slice(0, 500));
 };
 
 var bundler = watchify(browserify({
