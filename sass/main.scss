@@ -44,36 +44,36 @@ body {
 //     background: linear-gradient(rgba($rs, $gs, $bs, $os) 0%, rgba($re, $ge, $be, $oe) 100%); /* Standard syntax */
 // }
 
-#content {
-    display: flex;
-}
+// #content {
+//     display: flex;
+// }
 
-header {
-    color: #00BCD4;
-    text-align: center;
-}
+// header {
+//     color: #00BCD4;
+//     text-align: center;
+// }
 
-p {
-    margin: 8px 0 0 0;
-}
+// p {
+//     margin: 8px 0 0 0;
+// }
 
-#top {
-    display: flex;
-    justify-content: "center";
-    align-items: "center";
-}
+// #top {
+//     display: flex;
+//     justify-content: "center";
+//     align-items: "center";
+// }
 
-.container {
+// .container {
 
-    margin-top: $nav-height;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
+//     margin-top: $nav-height;
+//     position: absolute;
+//     left: 50%;
+//     transform: translateX(-50%);
+// }
 
-.polls-container {
-    margin-top: 50px;
-}
+// .polls-container {
+//     margin-top: 50px;
+// }
 
 canvas {
     width: auto !important;
@@ -89,240 +89,240 @@ canvas {
 //     margin: 20px 0 5px 0;
 // }
 
-.menu {
-    text-decoration: none;
-    padding: 6px;
-    margin: 0;
-    color: #727272;
-}
+// .menu {
+//     text-decoration: none;
+//     padding: 6px;
+//     margin: 0;
+//     color: #727272;
+// }
 
-.menu:visited {
-    color: #727272;
-}
+// .menu:visited {
+//     color: #727272;
+// }
 
-.menu:hover {
-    color: #FFA000;
-}
+// .menu:hover {
+//     color: #FFA000;
+// }
 
-.menu:active {
-    color: #FF630D;
-}
+// .menu:active {
+//     color: #FF630D;
+// }
 
-header a ~ p {
-    margin: 0;
-    padding: 0;
-    display: inline;
-    color: #ECEFF1;
-}
+// header a ~ p {
+//     margin: 0;
+//     padding: 0;
+//     display: inline;
+//     color: #ECEFF1;
+// }
 
-#display-name {
-    font-weight: 400;
-}
+// #display-name {
+//     font-weight: 400;
+// }
 
-/****** Login Styling ******/
+// /****** Login Styling ******/
 
-.login {
-    margin: 86px auto 0 auto;
-    text-align: center;
-}
+// .login {
+//     margin: 86px auto 0 auto;
+//     text-align: center;
+// }
 
-#login-btn {
-    width: 225px;
-    padding: 7px 5px;
-    margin-top: 60px;
-    margin-bottom: 60px;
-}
+// #login-btn {
+//     width: 225px;
+//     padding: 7px 5px;
+//     margin-top: 60px;
+//     margin-bottom: 60px;
+// }
 
-.btn p {
-    margin: 8px 0 0 0;
-    padding: 0;
-}
+// .btn p {
+//     margin: 8px 0 0 0;
+//     padding: 0;
+// }
 
-.btn > img {
-    float: left;
-    margin-left: 10px
-}
+// .btn > img {
+//     float: left;
+//     margin-left: 10px
+// }
 
-/****** Logo Div Styling ******/
-/*
-img {
-    margin: 0 auto;
-    display: block;
-}
-*/
+// /****** Logo Div Styling ******/
+// /*
+// img {
+//     margin: 0 auto;
+//     display: block;
+// }
+// */
 
-.pollstarter-nav-text {
-    position: relative;
-    display: inline-block;
-    top: -8px;
-}
+// .pollstarter-nav-text {
+//     position: relative;
+//     display: inline-block;
+//     top: -8px;
+// }
 
-.logo-50 {
-    position: relative;
-    top: 6px;
-    left: -8px;
-    display: inline-block;
-    width: 50px !important;
-    height: auto;
-}
+// .logo-50 {
+//     position: relative;
+//     top: 6px;
+//     left: -8px;
+//     display: inline-block;
+//     width: 50px !important;
+//     height: auto;
+// }
 
-.logo-div {
-    position: fixed;
-    left: 20px;
-    top: 4px;
-    display: inline-block;
-}
+// .logo-div {
+//     position: fixed;
+//     left: 20px;
+//     top: 4px;
+//     display: inline-block;
+// }
 
-/****** Click Styling ******/
+// /****** Click Styling ******/
 
-.btn-container {    
-    margin: -10px auto 0 auto;
-    text-align: center;
-}
+// .btn-container {    
+//     margin: -10px auto 0 auto;
+//     text-align: center;
+// }
 
-.btn {  /* Styling for buttons */
-    margin: 10px 8px 10px;
-    color: white;
-    background-color: #00BCD4;
-    display: inline-block;
-    border: 0;
-    font-size: 14px;
-    border-radius: 3px;
-    padding: 10px 5px;
-    width: 100px;
-    font-weight: 500;
-}
+// .btn {  /* Styling for buttons */
+//     margin: 10px 8px 10px;
+//     color: white;
+//     background-color: #00BCD4;
+//     display: inline-block;
+//     border: 0;
+//     font-size: 14px;
+//     border-radius: 3px;
+//     padding: 10px 5px;
+//     width: 100px;
+//     font-weight: 500;
+// }
 
-.btn:focus {
-    outline: none;
-}
+// .btn:focus {
+//     outline: none;
+// }
 
-.btn:active {
-    transform: scale(0.9, 0.9);
-    -webkit-transform: scale(0.9, 0.9);
-    -moz-transform: scale(0.9, 0.9);
-}
+// .btn:active {
+//     transform: scale(0.9, 0.9);
+//     -webkit-transform: scale(0.9, 0.9);
+//     -moz-transform: scale(0.9, 0.9);
+// }
 
-.btn-delete {
-    background-color: #ECEFF1;
-    color: #212121;
-}
+// .btn-delete {
+//     background-color: #ECEFF1;
+//     color: #212121;
+// }
 
-#click-nbr {
-    font-weight: 400;
-}
+// #click-nbr {
+//     font-weight: 400;
+// }
 
-/****** Nav Styling ******/
-#nav-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: $nav-height;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: #f1f1f1;
-    padding-bottom: 10px;
-    z-index: 999;
-}
+// /****** Nav Styling ******/
+// #nav-container {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     height: $nav-height;
+//     position: fixed;
+//     top: 0;
+//     width: 100%;
+//     background: #f1f1f1;
+//     padding-bottom: 10px;
+//     z-index: 999;
+// }
 
-#nav {
+// #nav {
 
-}
+// }
 
 
-/****** Profile Styling ******/
+// /****** Profile Styling ******/
 
-.github-profile {
-    width: 350px;
-    height: 200px;
-    border-radius: 3px;
-    margin: 86px auto 0 auto;
-    background-color: #EEE;
-    text-align: center;
-    color: #EEE;
-}
+// .github-profile {
+//     width: 350px;
+//     height: 200px;
+//     border-radius: 3px;
+//     margin: 86px auto 0 auto;
+//     background-color: #EEE;
+//     text-align: center;
+//     color: #EEE;
+// }
 
-.github-profile p:first-child {
-    padding-top: 16px;
-}
+// .github-profile p:first-child {
+//     padding-top: 16px;
+// }
 
-.github-profile p:nth-child(5) {
-    margin-bottom: 16px
-}
+// .github-profile p:nth-child(5) {
+//     margin-bottom: 16px
+// }
 
-.github-profile p {
-    margin: 0 0 0 16px;
-    text-align: left;
-}
+// .github-profile p {
+//     margin: 0 0 0 16px;
+//     text-align: left;
+// }
 
-.profile-value {
-    font-weight: 400;
-}
+// .profile-value {
+//     font-weight: 400;
+// }
 
-span {
-    font-weight: 500;
-}
+// span {
+//     font-weight: 500;
+// }
 
-.github-profile > img {
-    padding-top: 16px;
-    margin-bottom: 16px;
-}
+// .github-profile > img {
+//     padding-top: 16px;
+//     margin-bottom: 16px;
+// }
 
-.github-profile .menu:hover {
-    color: #FFA000;
-}
+// .github-profile .menu:hover {
+//     color: #FFA000;
+// }
 
-.github-profile .menu:active {
-    color: #FF630D;
-}
+// .github-profile .menu:active {
+//     color: #FF630D;
+// }
 
-#menu-divide {
-    color: #FFFFFF;
-    display: inline;
-    margin: 0;
-}
+// #menu-divide {
+//     color: #FFFFFF;
+//     display: inline;
+//     margin: 0;
+// }
 
-/****** Text Styling ******/
-.orange-text {
-    color: #FFA000;
-}
+// /****** Text Styling ******/
+// .orange-text {
+//     color: #FFA000;
+// }
 
-.blue-text {
-    color: #2DACE3;
-}
+// .blue-text {
+//     color: #2DACE3;
+// }
 
-.green-text {
-    color: #50A82F;
-}
+// .green-text {
+//     color: #50A82F;
+// }
 
-.purple-text {
-    color: #E22879;
-}
+// .purple-text {
+//     color: #E22879;
+// }
 
-.red-text {
-    color: #DC2327;
-}
+// .red-text {
+//     color: #DC2327;
+// }
 
-.pollstarter-text {
-    padding: 0;
-    margin: -25px 0 0 0px;
-    font-weight: 500;
-    font-size: 60px;
-    color: #00BCD4;
-}
+// .pollstarter-text {
+//     padding: 0;
+//     margin: -25px 0 0 0px;
+//     font-weight: 500;
+//     font-size: 60px;
+//     color: #00BCD4;
+// }
 
-.SinglePoll-question {
-    text-align: center;
-}
+// .SinglePoll-question {
+//     text-align: center;
+// }
 
-/****** Image Styling ******/
-.img-200 {
-    width: 200px;
-    height: 200px;
-}
+// /****** Image Styling ******/
+// .img-200 {
+//     width: 200px;
+//     height: 200px;
+// }
 
-/****** Form Styling ******/
-input {
-    margin-bottom: 20px;
-}
+// /****** Form Styling ******/
+// input {
+//     margin-bottom: 20px;
+// }

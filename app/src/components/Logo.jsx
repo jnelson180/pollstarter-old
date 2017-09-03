@@ -1,4 +1,4 @@
-module.exports = class extends React.Component {
+module.exports = class Logo extends React.Component {
     constructor(props) {
         super(props);
     }

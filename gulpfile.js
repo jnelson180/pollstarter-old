@@ -31,7 +31,7 @@ var notify = function (error) {
     }
     console.log(error.description + ":\n" + error.message ? error.message : "");
     notifier.notify({ title: title, message: message });
-    // console.log(JSON.stringify(error).toString().slice(0, 500));
+    console.log(JSON.stringify(error).toString().slice(0, 500));
 };
 
 var bundler = watchify(browserify({
@@ -61,7 +61,7 @@ gulp.task('build', function () {
 gulp.task('watch', function () {
     livereload.listen();
     gulp.watch('./app/src/**', ['build']);
-    gulp.watch('./sass/**', ['sass'])
+    gulp.watch('./sass/**', ['sass']);
 });
 
 gulp.task('sass', function () {
