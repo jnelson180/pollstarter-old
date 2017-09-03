@@ -26,9 +26,13 @@ module.exports = class extends React.Component {
 
     render() {
         if (this.state.res) {
+            let resLength = this.state.res.length;
+            let rows = Math.ceil(this.state.res.length / 3);
+            let index = 0;
             return (
                 <div style={{
-                    height: '500px'
+                    position: 'relative',
+                    margin: '100px 50px 50px 50px'
                 }}>
                     <Grid columns={3} doubling stackable>
                         {this.state.res.map((poll, index) => {
