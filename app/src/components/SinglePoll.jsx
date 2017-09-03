@@ -63,7 +63,7 @@ module.exports = class SinglePoll extends React.Component {
                     position: 'top',
                     padding: 20,
                     labels: {
-                        fontColor: '#555'
+                        fontColor: '#EEE'
                     }
                 },
 
@@ -72,7 +72,7 @@ module.exports = class SinglePoll extends React.Component {
                     position: 'top',
                     fullWidth: true,
                     fontSize: 18,
-                    fontColor: '#333',
+                    fontColor: '#EEE',
                     fontStyle: 'bold',
                     text: this.props.question,
                     padding: 20,

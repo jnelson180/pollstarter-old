@@ -8,7 +8,7 @@ var Logo = require('./Logo');
 module.exports = React.createClass({
     render: function () {
         return (
-            <div id="navContainer">
+            <div id="nav-container">
                 <header>
                     <div id="nav">
                         <p>Welcome, <span id="display-name">{this.props.user.displayName}</span>!</p>

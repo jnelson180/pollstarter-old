@@ -1,4 +1,20 @@
+/****** SCSS Variables ******/
+
+$nav-height: 60px;
+$rs: 50; // redStart for gradients
+$gs: 50; // greenStart for gradients
+$bs: 50; // blueStart for gradients
+$os: 0.6; // opacityStart for gradients
+$re: 0; // redEnd
+$ge: 0; // greenEnd
+$be: 0; // blueEnd
+$oe: 0.9; // opacityEnd
+
 /****** Main Styling ******/
+
+html, body {
+    height: 100%;
+}
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -6,22 +22,43 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-    background: #212121;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment:fixed;
-    background-size: contain;
+    // background: url('https://static.pexels.com/photos/51373/utah-mountain-sky-nature-51373.jpeg') no-repeat center center fixed; 
+    // background-size: cover;
+    background: #212121; /* For browsers that do not support gradients */
+    background: -webkit-radial-gradient(top center, ellipse cover, rgba(255,255,255,0.2) 0%,rgba(0,0,0,0.5) 100%), url('https://static.pexels.com/photos/51373/utah-mountain-sky-nature-51373.jpeg') cover;
+    color: #f2f2f2;
+}
+
+// body:before {
+//     content: " ";
+//     width: 100%;
+//     height: 100%;
+//     position: absolute;
+//     z-index: -1;
+//     top: 0;
+//     left: 0;
+//     background: #212121; /* For browsers that do not support gradients */
+//     background: -webkit-linear-gradient(rgba($rs, $gs, $bs, $os) 0%, rgba($re, $ge, $be, $oe) 100%); /* For Safari 5.1 to 6.0 */
+//     background: -o-linear-gradient(rgba($rs, $gs, $bs, $os) 0%, rgba($re, $ge, $be, $oe) 100%); /* For Opera 11.1 to 12.0 */
+//     background: -moz-linear-gradient(rgba($rs, $gs, $bs, $os) 0%, rgba($re, $ge, $be, $oe) 100%); /* For Firefox 3.6 to 15 */
+//     background: linear-gradient(rgba($rs, $gs, $bs, $os) 0%, rgba($re, $ge, $be, $oe) 100%); /* Standard syntax */
+// }
+
+#content {
+    display: flex;
 }
 
 header {
     color: #00BCD4;
-    height: 56px;
-    margin: 0 0 14px 0;
     text-align: center;
 }
 
 p {
     margin: 8px 0 0 0;
+}
+
+.container {
+
 }
 
 .container p {
@@ -36,18 +73,18 @@ p {
 }
 
 canvas {
-    /* width: auto !important;
+    width: auto !important;
     height: auto !important;
-    border-radius: 3px; */
-    /* margin: 16px auto 0px auto;
-    text-align: center; */
+    border-radius: 3px;
+    margin: 16px auto 0px auto;
+    text-align: center;
 }
 
 /****** Header Styling ******/
 
-header p {
-    margin: 20px 0 5px 0;
-}
+// header p {
+//     margin: 20px 0 5px 0;
+// }
 
 .menu {
     text-decoration: none;
@@ -112,21 +149,25 @@ img {
 */
 
 .pollstarter-nav-text {
-    margin-left: 75px;
+    position: relative;
+    display: inline-block;
+    top: -8px;
 }
 
 .logo-50 {
+    position: relative;
+    top: 6px;
+    left: -8px;
+    display: inline-block;
     width: 50px !important;
     height: auto;
-    position: absolute;
-    left: 10px;
-    top: 10px;
 }
 
 .logo-div {
-    position: absolute;
+    position: fixed;
     left: 20px;
     top: 4px;
+    display: inline-block;
 }
 
 /****** Click Styling ******/
@@ -169,8 +210,20 @@ img {
 }
 
 /****** Nav Styling ******/
-#nav {
+#nav-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: $nav-height;
+    position: fixed;
+    top: 0;
+    width: 100%;
     background: #f1f1f1;
+    padding-bottom: 10px;
+}
+
+#nav {
+
 }
 
 
@@ -183,7 +236,7 @@ img {
     margin: 86px auto 0 auto;
     background-color: #EEE;
     text-align: center;
-    color: #000;
+    color: #EEE;
 }
 
 .github-profile p:first-child {
