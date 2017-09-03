@@ -1,6 +1,5 @@
 var React = require('react');
 
-
 module.exports = React.createClass({
     render: function () {
         return (
@@ -12,7 +11,7 @@ module.exports = React.createClass({
                     <a href="/auth/github/callback">
                         <div className="btn" id="login-btn">
                             <img src="public/img/github_32px.png" alt="github logo" />
-                            <p>LOGIN WITH GITHUB</p>
+                            <p>Login with GitHub</p>
                         </div>
                     </a>
                 </div>
