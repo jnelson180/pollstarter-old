@@ -8,10 +8,10 @@ var Logo = require('./Logo');
 module.exports = React.createClass({
     render: function () {
         return (
-            <div id="nav-container">
+            <div>
                 <header>
-                    <div id="nav">
-                        <p>Welcome, <span id="display-name">{this.props.user.displayName}</span>!</p>
+                    <div>
+                        <p>Welcome, <span>{this.props.user.displayName}</span>!</p>
                         <Link className="menu" to={"/"}>Home</Link>
                         <p>|</p>
                         <Link className="menu" to={"/createPoll"}>Create Poll</Link>

@@ -87,7 +87,7 @@ module.exports = class SinglePoll extends React.Component {
                     bodySpacing: 6,
                     bodyFontSize: 16,
                 },
-                maintainAspectRatio: false,
+                maintainAspectRatio: true,
             },
 
             onClick: {
@@ -120,8 +120,9 @@ module.exports = class SinglePoll extends React.Component {
                 data={this.state.data} 
                 getElementAtEvent={this.state.onElementsClick} 
                 options={this.state.options} 
-                width={400} 
-                height={400} />
+                width={"650px"}
+                height={"650px"}
+        />
         )
     };
 }

@@ -4,6 +4,7 @@ var Btn = require('./Btn');
 var Header = require('./Header');
 var SinglePoll = require('./SinglePoll');
 var ajaxRequest = require('../ajax-functions');
+import { Grid, Segment } from 'semantic-ui-react';
 
 var clicksApiUrl = window.location.origin + '/api/:id/clicks';
 var pollDataApiUrl = window.location.origin + '/polldata/api';
@@ -26,23 +27,32 @@ module.exports = class extends React.Component {
     render() {
         if (this.state.res) {
             return (
-                <div className="container">
-                    { this.state.res.map((poll, index) => (
-                            <div className="polls-container">
-                                <SinglePoll data={poll.pollInfo.votes} 
-                                    labels={poll.pollInfo.values} 
-                                    question={poll.pollInfo.question} 
-                                    id={poll._id}/>
-                            </div>))}
+                <div style={{
+                    height: '500px'
+                }}>
+                    <Grid columns={3} doubling stackable>
+                        {this.state.res.map((poll, index) => {
+                            return (
+                                <Grid.Column>
+                                    <Segment>
+                                        <SinglePoll data={poll.pollInfo.votes} 
+                                            labels={poll.pollInfo.values} 
+                                            question={poll.pollInfo.question} 
+                                            id={poll._id}/>
+                                    </Segment>
+                                </Grid.Column>
+                            )
+                        })}
+                    </Grid>
                 </div>
             );
         } else {
             return (
-                <div className="container">
+                <div>
                     <Header/>
                     <p></p>
                     <br/>
-                    <div className="polls-container"></div>
+                    <div>Loading...</div>
                 </div>
             )
         }
