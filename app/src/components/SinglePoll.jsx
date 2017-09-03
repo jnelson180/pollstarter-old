@@ -116,13 +116,17 @@ module.exports = class SinglePoll extends React.Component {
 
     render() {
         return (
-            <Pie 
-                data={this.state.data} 
-                getElementAtEvent={this.state.onElementsClick} 
-                options={this.state.options} 
-                width={"650px"}
-                height={"650px"}
-        />
+            <div style={{
+                        paddingBottom: 28,
+                    }}>
+                <Pie 
+                    data={this.state.data} 
+                    getElementAtEvent={this.state.onElementsClick} 
+                    options={this.state.options} 
+                    width={"650px"}
+                    height={"650px"}
+                    />
+            </div>
         )
     };
 }

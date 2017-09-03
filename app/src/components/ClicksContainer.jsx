@@ -38,7 +38,9 @@ module.exports = class extends React.Component {
                         {this.state.res.map((poll, index) => {
                             return (
                                 <Grid.Column>
-                                    <Segment>
+                                    <Segment style={{
+                                        boxShadow: '6px 10px 35px -10px rgba(0,0,0,0.75)'
+                                    }}>
                                         <SinglePoll data={poll.pollInfo.votes} 
                                             labels={poll.pollInfo.values} 
                                             question={poll.pollInfo.question} 
