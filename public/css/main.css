@@ -1,6 +1,5 @@
 /****** Main Styling ******/
 
-
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
@@ -15,43 +14,47 @@ body {
 }
 
 #top, #bottom, #left, #right {
-	background: #929292;
-	position: fixed;
-	}
-	#left, #right {
+    background: #929292;
+    position: fixed;
+}
+
+#left, #right {
     z-index: 105;
-		top: 0; bottom: 0;
-		width: 6px;
+    top: 0; bottom: 0;
+    width: 6px;
+}
 
-		}
-		#left {
-      left: 0;
-      border-left: 3px groove #929292;
-    }
-		#right {
-      right: 0;
-      border-right: 3px groove #929292;
-    }
+#left {
+    left: 0;
+    border-left: 3px groove #929292;
+}
 
-	#top, #bottom {
-		left: 0; right: 0;
-		}
-		#top {
-      z-index: 106;
-      top: 0;
-      height: 6px;
-      border-top: 3px groove #929292;
-      border-left: 3px groove #929292;
-      border-right: 3px groove #929292;
-    }
-		#bottom {
-      z-index: 104;
-      bottom: 0;
-      height: 0px;
-      border-bottom: 16px groove #929292;
-      border-left: 3px groove #929292;
-      border-right: 3px groove #929292;
-    }
+#right {
+    right: 0;
+    border-right: 3px groove #929292;
+}
+
+#top, #bottom {
+    left: 0; right: 0;
+}
+
+#top {
+    z-index: 106;
+    top: 0;
+    height: 6px;
+    border-top: 3px groove #929292;
+    border-left: 3px groove #929292;
+    border-right: 3px groove #929292;
+}
+
+#bottom {
+    z-index: 104;
+    bottom: 0;
+    height: 0px;
+    border-bottom: 16px groove #929292;
+    border-left: 3px groove #929292;
+    border-right: 3px groove #929292;
+}
 
 header {
     color: #00BCD4;
@@ -70,18 +73,17 @@ p {
 }
 
 .polls-container {
-  margin-top: 75px;
-  margin-bottom: 75px;
-  padding-bottom: 20px;
-
+    margin-top: 75px;
+    margin-bottom: 75px;
+    padding-bottom: 20px;
 }
 
 canvas {
-  /* width: auto !important;
-  height: auto !important;
-  border-radius: 3px; */
-  /* margin: 16px auto 0px auto;
-  text-align: center; */
+    /* width: auto !important;
+    height: auto !important;
+    border-radius: 3px; */
+    /* margin: 16px auto 0px auto;
+    text-align: center; */
 }
 
 /****** Header Styling ******/
@@ -153,32 +155,32 @@ img {
 */
 
 .pollstarter-nav-text {
-  margin-left: 75px;
+    margin-left: 75px;
 }
 
 .logo-50 {
-  width: 50px !important;
-  height: auto;
-  position: absolute;
-  left: 10px;
-  top: 10px;
+    width: 50px !important;
+    height: auto;
+    position: absolute;
+    left: 10px;
+    top: 10px;
 }
 
 .logo-div {
-  position: absolute;
-  left: 20px;
-  top: 4px;
+    position: absolute;
+    left: 20px;
+    top: 4px;
 }
 
 @media (max-width: 931px) {
-  .logo-div {
-    display: none;
-  }
+    .logo-div {
+        display: none;
+    }
 }
 
 /****** Click Styling ******/
 
-.btn-container {    /* Styling for the div that contains the buttons */
+.btn-container {    
     margin: -10px auto 0 auto;
     text-align: center;
 }
@@ -196,17 +198,17 @@ img {
     font-weight: 500;
 }
 
-.btn:focus {    /* Remove outline when hovering over button */
+.btn:focus {
     outline: none;
 }
 
-.btn:active {   /* Scale the button down by 10% when clicking on button */
+.btn:active {
     transform: scale(0.9, 0.9);
     -webkit-transform: scale(0.9, 0.9);
     -moz-transform: scale(0.9, 0.9);
 }
 
-.btn-delete {   /* Styling for delete button */
+.btn-delete {
     background-color: #ECEFF1;
     color: #212121;
 }
@@ -269,26 +271,26 @@ span {
 
 /****** Text Styling ******/
 .orange-text {
-  color: #FFA000;
+    color: #FFA000;
 }
 
 .blue-text {
-  color: #2DACE3;
+    color: #2DACE3;
 }
 
 .green-text {
-  color: #50A82F;
+    color: #50A82F;
 }
 
 .purple-text {
-  color: #E22879;
+    color: #E22879;
 }
 
 .red-text {
-  color: #DC2327;
+    color: #DC2327;
 }
 
-.pollstarter-text { /* Styling for the Clementine.js text */
+.pollstarter-text {
     padding: 0;
     margin: -25px 0 0 0px;
     font-weight: 500;
@@ -302,11 +304,11 @@ span {
 
 /****** Image Styling ******/
 .img-200 {
-  width: 200px;
-  height: auto;
+    width: 200px;
+    height: auto;
 }
 
 /****** Form Styling ******/
 input {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
