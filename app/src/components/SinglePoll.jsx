@@ -1,7 +1,6 @@
 var Pie = require('react-chartjs-2').Pie;
 var ajaxRequest = require('../ajax-functions');
 var voteUrl = window.location.origin + '/pollData/vote';
-import { Card } from 'semantic-ui-react';
 
 module.exports = class SinglePoll extends React.Component {
     constructor(props) {
@@ -117,10 +116,12 @@ module.exports = class SinglePoll extends React.Component {
 
     render() {
         return (
-            <Card>
-                <Card.Header>Yay fun!</Card.Header>
-                <Pie data={this.state.data} getElementAtEvent={this.state.onElementsClick} options={this.state.options} width={400} height={400} />
-            </Card>
+            <Pie 
+                data={this.state.data} 
+                getElementAtEvent={this.state.onElementsClick} 
+                options={this.state.options} 
+                width={400} 
+                height={400} />
         )
     };
 }
