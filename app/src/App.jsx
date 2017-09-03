@@ -8,40 +8,40 @@ import 'semantic-ui-css/semantic.min.css';
 
 
 var App = React.createClass({
-  getInitialState: function() {
-    return({
-      user: undefined,
-      response: false
-    })
-  },
-  componentDidMount: function() {
-    if(!this.state.user){
-      ajax('GET', clicksApiUrl, function(data){
-        if (data != 'no user'){
-          this.setState({
-            user: JSON.parse(data)
-          })
-        }
-        this.setState({
-          response: true
+    getInitialState: function () {
+        return ({
+            user: undefined,
+            response: false
         })
-      }.bind(this))
+    },
+    componentDidMount: function () {
+        if (!this.state.user) {
+            ajax('GET', clicksApiUrl, function (data) {
+                if (data != 'no user') {
+                    this.setState({
+                        user: JSON.parse(data)
+                    })
+                }
+                this.setState({
+                    response: true
+                })
+            }.bind(this))
+        }
+    },
+    render() {
+        if (this.state.response) {
+            return (
+                <Routes user={this.state.user} />
+            )
+        } else {
+            return (
+                <div>Loading...</div>
+            )
+        }
     }
-  },
-  render() {
-      if(this.state.response){
-        return (
-          <Routes user={this.state.user}/>
-        )
-      } else {
-        return (
-          <div>Loading...</div>
-        )
-      }
-  }
 })
 
 ReactDOM.render(
-  <App/>,
-  document.getElementById('content')
+    <App />,
+    document.getElementById('content')
 );

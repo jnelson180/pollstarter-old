@@ -32,15 +32,15 @@ module.exports = function (app, passport) {
 
     app.route('/auth/github/callback')
         .get(passport.authenticate('github', {
-        successRedirect: '/',
-        failureRedirect: '/login'
+            successRedirect: '/',
+            failureRedirect: '/login'
         }));
 
-        app.route('/pollData/api')
-            .get(pollHandler.getX);
+    app.route('/pollData/api')
+        .get(pollHandler.getX);
 
-        app.route('/pollData/vote/:id/:choice')
-            .post(pollHandler.addVote);
+    app.route('/pollData/vote/:id/:choice')
+        .post(pollHandler.addVote);
 
     app.route('/api/:id/clicks')
         .get(clickHandler.getClicks)
