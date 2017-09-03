@@ -8,29 +8,30 @@ var reactify = require('reactify');
 var notifier = require('node-notifier');
 var livereload = require('gulp-livereload');
 var babelify = require('babelify');
+var sass = require('gulp-sass');
 
 var notify = function (error) {
-    var message = 'In: ';
-    var title = 'Error: ';
+    // var message = 'In: ';
+    // var title = 'Error: ';
 
-    if (error.description) {
-        title += error.description;
-    } else if (error.message) {
-        title += error.message;
-    }
+    // if (error.description) {
+    //     title += error.description;
+    // } else if (error.message) {
+    //     title += error.message;
+    // }
 
-    if (error.filename) {
-        var file = error.filename.split('/');
-        message += file[file.length - 1];
-        console.log(message);
-    }
+    // if (error.filename) {
+    //     var file = error.filename.split('/');
+    //     message += file[file.length - 1];
+    //     console.log(message);
+    // }
 
-    if (error.lineNumber) {
-        console.log('error On Line: ' + error.lineNumber);
-        console.log(error);
-    }
-    console.log(error.description + ":\n" + error.message ? error.message : "");
-    notifier.notify({ title: title, message: message });
+    // if (error.lineNumber) {
+    //     console.log('error On Line: ' + error.lineNumber + ':', error);
+    // }
+    // console.log(error.description + ":\n" + error.message ? error.message : "");
+    // notifier.notify({ title: title, message: message });
+    console.log(JSON.stringify(error).toString().slice(0, 500));
 };
 
 var bundler = watchify(browserify({
@@ -60,6 +61,13 @@ gulp.task('build', function () {
 gulp.task('watch', function () {
     livereload.listen();
     gulp.watch('./app/src/**', ['build']);
+    gulp.watch('./sass/**', ['sass'])
 });
 
-gulp.task('default', ['build', 'watch']);
+gulp.task('sass', function () {
+    return gulp.src('./sass/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('./public/css/'));
+});
+
+gulp.task('default', ['build', 'sass', 'watch']);
