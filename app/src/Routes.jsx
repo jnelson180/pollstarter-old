@@ -20,9 +20,11 @@ module.exports = React.createClass({
         return (
             <Router>
                 <Route path="/" component={Main} onEnter={this.requireLogin} user={this.props.user}>
-                    <IndexRoute component={ClicksContainer} />
-                    <Route path="/Profile" component={Profile} user={this.props.user} />
-                    <Route path="/createPoll" component={CreatePoll} user={this.props.user} />
+                    <div id="top">
+                        <IndexRoute component={ClicksContainer} />
+                        <Route path="/Profile" component={Profile} user={this.props.user} />
+                        <Route path="/createPoll" component={CreatePoll} user={this.props.user} />
+                    </div>
                 </Route>
                 <Route path="/Login" component={Login} />
             </Router>
