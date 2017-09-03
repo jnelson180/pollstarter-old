@@ -4,8 +4,6 @@ var Routes = require('./Routes');
 var ajax = require('./ajax-functions');
 var appUrl = window.location.origin;
 var clicksApiUrl = appUrl + '/api/:id';
-import 'semantic-ui-css/semantic.min.css';
-
 
 var App = React.createClass({
     getInitialState: function () {

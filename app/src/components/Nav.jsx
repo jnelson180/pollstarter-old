@@ -9,12 +9,8 @@ module.exports = React.createClass({
     render: function () {
         return (
             <div id="navContainer">
-                <div id="left"></div>
-                <div id="right"></div>
-                <div id="top"></div>
-                <div id="bottom"></div>
                 <header>
-                    <div id="navDiv">
+                    <div id="nav">
                         <p>Welcome, <span id="display-name">{this.props.user.displayName}</span>!</p>
                         <Link className="menu" to={"/"}>Home</Link>
                         <p>|</p>
