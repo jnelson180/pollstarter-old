@@ -1,7 +1,46 @@
+import { Segment, Container, Button, Form, Icon } from 'semantic-ui-react';
+
 module.exports = class CreatePoll extends React.Component {
     render() {
         return (
-            <div id="pollCreateContainer">
+            <Container text style={{
+                paddingTop: 75
+            }}>
+                <Form action="/api/pollEdit" method="POST" enctype="multipart/form-data">
+                    <Form.Field width={12}>
+                        <label>Poll question</label>
+                        <input placeholder='Enter your poll question...' />
+                    </Form.Field>
+                    <Form.Field width={12}>
+                        <label>Option 1</label>
+                        <input placeholder='Enter option...' />
+                    </Form.Field>
+                    <Form.Field width={12}>
+                        <label>Option 2</label>
+                        <input placeholder='Enter option...' />
+                    </Form.Field>
+                    <Form.Field width={12}>
+                        <label>Option 3</label>
+                        <input placeholder='Enter option...' />
+                    </Form.Field>
+                    <Form.Field width={12}>
+                        <label>Option 4</label>
+                        <input placeholder='Enter option...' />
+                    </Form.Field>
+                    <Form.Field width={12}>
+                        <label>Option 5</label>
+                        <input placeholder='Enter option...' />
+                    </Form.Field>                                                            
+                    <Button type='submit'>Submit</Button>
+                    <Button type='reset'>Reset</Button>
+                    <Button icon='plus' color='purple' onClick={(e) => {
+                        e.preventDefault();
+                        // to do
+                    }}>Add more options</Button>
+                </Form>                
+            </Container>
+
+            /*<div id="pollCreateContainer">
                 <div id="pollCreate">
                     <h1>Create a poll</h1>
                     <form action="/api/pollEdit" method="POST" enctype="multipart/form-data">
@@ -27,7 +66,7 @@ module.exports = class CreatePoll extends React.Component {
                         <input type="reset" />
                     </form>
                 </div>
-            </div>
+            </div>*/
         );
     }
 }
