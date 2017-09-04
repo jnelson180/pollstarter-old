@@ -56,9 +56,13 @@ function PollHandler() {
     };
 
     this.addPoll = function (req, res) {
+        console.log(req);
+        console.log(req.body);
+        console.log('ogh');
         function getFieldCount() {
             var fieldCount = 0;
             for (var i = 0; i < 100; i++) {
+                console.log(req.body);
                 if (req.body['option' + i]) {
                     fieldCount++;
                 }

@@ -1,42 +1,45 @@
 import { Segment, Container, Button, Form, Icon } from 'semantic-ui-react';
+import update from 'immutability-helper';
 
 module.exports = class CreatePoll extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            options: [1, 2, 3, 4, 5]
+        }
+    }
+
     render() {
         return (
             <Container text style={{
-                paddingTop: 75
+                paddingTop: 100
             }}>
-                <Form action="/api/pollEdit" method="POST" enctype="multipart/form-data">
+                <Form action="/api/pollEdit" method="POST" encType="multipart/form-data">
                     <Form.Field width={12}>
                         <label>Poll question</label>
-                        <input placeholder='Enter your poll question...' />
+                        <input type="text" placeholder='Enter your poll question...' />
                     </Form.Field>
-                    <Form.Field width={12}>
-                        <label>Option 1</label>
-                        <input placeholder='Enter option...' />
-                    </Form.Field>
-                    <Form.Field width={12}>
-                        <label>Option 2</label>
-                        <input placeholder='Enter option...' />
-                    </Form.Field>
-                    <Form.Field width={12}>
-                        <label>Option 3</label>
-                        <input placeholder='Enter option...' />
-                    </Form.Field>
-                    <Form.Field width={12}>
-                        <label>Option 4</label>
-                        <input placeholder='Enter option...' />
-                    </Form.Field>
-                    <Form.Field width={12}>
-                        <label>Option 5</label>
-                        <input placeholder='Enter option...' />
-                    </Form.Field>                                                            
+                    { this.state.options.map((o, i) => {
+                        return (
+                            <Form.Field width={12} key={i}>
+                                <label>Option {o}</label>
+                                <input type="text" placeholder='Enter option...' />
+                            </Form.Field>      
+                        );
+                    })}
                     <Button type='submit'>Submit</Button>
                     <Button type='reset'>Reset</Button>
                     <Button icon='plus' color='purple' onClick={(e) => {
                         e.preventDefault();
-                        // to do
-                    }}>Add more options</Button>
+                        let ops = this.state.options;
+                        this.setState((prevState) => {
+                            return update(prevState, {
+                                options: {
+                                    $push: [(ops[ops.length - 1]) + 1]
+                                }
+                            });
+                        });
+                    }}>Add option</Button>
                 </Form>                
             </Container>
 
