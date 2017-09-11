@@ -5,30 +5,79 @@ module.exports = class CreatePoll extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            options: [1, 2, 3, 4, 5]
+            options: [1, 2, 3, 4, 5],
+            form: {
+                question: "",
+                option1: "",
+                option2: "",
+                option3: "",
+                option4: "",
+                option5: "",
+                option6: "",
+                option7: "",
+                option8: "",
+                option9: "",
+                option10: ""
+            }
         }
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+    }
+    
+    handleSubmit() {
+        // /api/pollEdit POST
+        // url (required), options (optional)
+        fetch('/api/pollEdit', {
+            method: 'POST',
+            body: new FormData(this.state.form)
+        })
+        .then(function(response) {
+            console.log(response);
+        })
+        .catch(function(err) {
+            console.log(err)
+        });
+    }
+
+    handleChange(event) {
+        let target = event.target;
+        let value = target.value;
+        let name = target.name;
+
+        this.setState((prevState) => {
+            return update(prevState, {
+                form: {
+                    [name]: {
+                        $set: value
+                    }
+                }
+            });
+        });
     }
 
     render() {
+        console.log(this.props.user);
         return (
             <Container text style={{
                 paddingTop: 100
             }}>
-                <Form action="/api/pollEdit" method="POST" encType="multipart/form-data">
+
+                <Form onSubmit={this.handleSubmit}>
                     <Form.Field width={12}>
                         <label>Poll question</label>
-                        <input type="text" placeholder='Enter your poll question...' />
+                        <input name="pollQuestion" type="text" placeholder='Enter your poll question...' onChange={this.handleChange} />
                     </Form.Field>
                     { this.state.options.map((o, i) => {
                         return (
                             <Form.Field width={12} key={i}>
                                 <label>Option {o}</label>
-                                <input type="text" placeholder='Enter option...' />
+                                <input name={"option" + o}type="text" placeholder='Enter option...'  onChange={this.handleChange} />
                             </Form.Field>      
                         );
                     })}
                     <Button type='submit'>Submit</Button>
                     <Button type='reset'>Reset</Button>
+                    { this.state.options.length < 10 ?
                     <Button icon='plus' color='purple' onClick={(e) => {
                         e.preventDefault();
                         let ops = this.state.options;
@@ -40,6 +89,7 @@ module.exports = class CreatePoll extends React.Component {
                             });
                         });
                     }}>Add option</Button>
+                    : null}
                 </Form>                
             </Container>
 

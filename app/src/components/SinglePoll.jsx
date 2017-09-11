@@ -92,10 +92,8 @@ module.exports = class SinglePoll extends React.Component {
 
             onClick: {
                 function(evt) {
-                    console.log('this: ', this);
                     var activePoints = Pie.getElementsAtEvent(evt);
                     // => activePoints is an array of points on the canvas that are at the same position as the click event.
-                    console.log('activePoints: ', activePoints);
                 }
             },
             onElementsClick: function (elems) {

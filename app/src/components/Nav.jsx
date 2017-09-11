@@ -12,12 +12,12 @@ module.exports = React.createClass({
             <Menu fixed='top' inverted>
                 <Container>
                     <Menu.Item as='a' header>
-                    <Image
-                        size='mini'
-                        src='../../public/img/pollstarter-50.png'
-                        style={{ marginRight: '1.5em' }}
-                    />
-                    Pollstarter
+                        <Image
+                            size='mini'
+                            src='../../public/img/pollstarter-50.png'
+                            style={{ marginRight: '1.5em' }}
+                        />
+                        Pollstarter
                     </Menu.Item>
                     <Menu.Item>
                         <Link className="menu" to={"/"}>Home</Link>
